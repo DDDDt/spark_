@@ -14,7 +14,7 @@ object WordSparkApplication {
     val input = sc.textFile("/tmp/sparkStudy/thatGirl.txt")
     val words = input.flatMap(x => x.split(" "))
     val counts = words.map(word => (word,1)).reduceByKey((v1,v2) => v1+v2)
-    counts.saveAsTextFile("/tmp/sparkStudy/word.text")
+    counts.saveAsTextFile("/tmp/sparkStudy/word")
     sc.stop()
 
   }

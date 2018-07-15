@@ -26,7 +26,7 @@ public class WordSparkApplication {
             return x + y;
         });
 
-        wordCount.saveAsTextFile("/tmp/sparkStudy/word.text");
+        wordCount.saveAsTextFile("/tmp/sparkStudy/javaword");
 
     }
 
