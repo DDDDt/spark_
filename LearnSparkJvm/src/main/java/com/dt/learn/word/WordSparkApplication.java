@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.storage.StorageLevel;
 import scala.Tuple2;
 
 import java.util.Arrays;
@@ -26,7 +27,13 @@ public class WordSparkApplication {
             return x + y;
         });
 
+        /*将数据直接保存到缓存中*/
+        wordCount.persist(StorageLevel.MEMORY_AND_DISK());
+
         wordCount.saveAsTextFile("/tmp/sparkStudy/javaword");
+
+        /*直接清除缓存*/
+        wordCount.unpersist();
 
     }
 
