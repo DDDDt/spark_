@@ -7,14 +7,10 @@ import org.apache.spark.{SparkConf, SparkContext}
   */
 object SparkContextScalaApplication {
 
-  def main(args: Array[String]): Unit = {
-
+  def createSparkContextForConf:SparkContext = {
     val conf = new SparkConf().setMaster("local").setAppName("my scala app")
     val sc = new SparkContext(conf)
-
-    /*关闭*/
-    sc.stop()
-
+    sc
   }
 
 }

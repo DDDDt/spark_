@@ -9,7 +9,7 @@ import org.apache.spark.api.java.JavaSparkContext;
  */
 public class SparkContextApplication {
 
-    public static void main(String[] args) {
+    public static JavaSparkContext crateSparkContextFactory(){
 
         /**
          * 创建最简单基本的 sparkContext
@@ -18,11 +18,7 @@ public class SparkContextApplication {
          */
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("my app");
         JavaSparkContext javaSparkContext = new JavaSparkContext(sparkConf);
-        /*统计一个单机出现的次数*/
-
-        /*关闭*/
-        javaSparkContext.stop();
-
+        return javaSparkContext;
     }
 
 }
